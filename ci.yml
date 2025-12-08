@@ -1,15 +1,25 @@
-name: CI
+name: CI 
 
 
-on: push
-
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+
+    env:
+      RAILS_ENV: test
+      DEBUG: 1
+
     steps:
       - name: Checkout repository
-        uses: actions-checkout@v4
+        uses: actions/checkout@v4
+
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -23,5 +33,7 @@ jobs:
       - name: Run linter
         run: make lint
 
+
       - name: Run tests
         run: make test
+
