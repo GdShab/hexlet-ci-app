@@ -39,4 +39,4 @@ jobs:
 
 
       - name: Hello from Hexlet!
-        run: actions/hexlet-components/hello-from-hexlet-action@release
+        uses: hexlet-components/hello-from-hexlet-action@release
